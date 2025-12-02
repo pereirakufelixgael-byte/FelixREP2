@@ -1,35 +1,56 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  </head>
-  <p>xddd</p>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AR — Santa Claus</title>
 
-  <body style="margin: 0; overflow: hidden;">
-    <p>sesad</p>
-    <a-scene
-      vr-mode-ui="enabled: true"
-      xr-mode-ui="enabled: true"
-      renderer="colorManagement: true;"
-      embedded
+  <!-- model-viewer (module y nomodule para compatibilidad) -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+  <style>
+    html,body{height:100%;margin:0}
+    .wrap{height:100%;display:flex;align-items:center;justify-content:center;background:#111}
+    model-viewer{width:100%;max-width:900px;height:100vh;min-height:600px;background:transparent}
+    .hint{position:fixed;left:12px;bottom:12px;color:#fff;font-family:system-ui,Arial;font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- src: ruta relativa a tu glb en el mismo repo -->
+    <model-viewer
+      id="mv"
+      src="santa_claus.glb"
+      alt="Santa Claus 3D"
+      camera-controls
+      touch-action="pan-y"
+      exposure="1"
       ar
+      ar-modes="webxr scene-viewer quick-look"
+      environment-image="neutral"
+      shadow-intensity="1"
+      style="background:transparent"
     >
+      <!-- Botón personalizado para entrar en AR en navegadores que no lo muestran automáticamente -->
+      <button slot="ar-button" style="all:unset;background:#0b84ff;color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;cursor:pointer;">
+        Ver en AR
+      </button>
+    </model-viewer>
+  </div>
 
-      <!-- Modelo AR (tu Santa Claus) -->
-      <a-entity 
-        gltf-model="santa_claus.glb"
-        position="0 0 -1"
-        scale="0.5 0.5 0.5"
-        rotation="0 180 0"
-      >
-      </a-entity>
+  <div class="hint">Abre esto desde tu celular (Chrome Android recomendado). iPhone usa Quick Look si tiene usdz.</div>
 
-      <a-camera></a-camera>
-
-    </a-scene>
-  </body>
-
+  <script>
+    // Mensajes útiles para debug en consola
+    const mv = document.getElementById('mv');
+    mv.addEventListener('error', (ev) => {
+      console.error('model-viewer error:', ev);
+    });
+    mv.addEventListener('load', () => {
+      console.log('Modelo cargado OK');
+    });
+  </script>
+</body>
 </html>
-
 
