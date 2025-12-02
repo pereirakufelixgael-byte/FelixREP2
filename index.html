@@ -46,27 +46,6 @@
     background: #ffefef;
   }
 
-  /* NIEVE ANIMADA */
-  .snow {
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      url('https://i.imgur.com/Mt1d9Yk.png'),
-      url('https://i.imgur.com/Mt1d9Yk.png'),
-      url('https://i.imgur.com/Mt1d9Yk.png');
-    background-size: 300px 300px;
-    animation: snow 10s linear infinite;
-    z-index: 9998;
-  }
-
-  @keyframes snow {
-    0% { background-position: 0 0, 0 0, 0 0; }
-    100% { background-position: 500px 1000px, 300px 600px, -300px 300px; }
-  }
 </style>
 
 </head>
@@ -86,8 +65,7 @@
       shadow-intensity="1"
       style="background:transparent"
     >
-      <!-- NIEVE -->
-<div class="snow"></div>
+      
 <!-- BOTÓN AR CENTRADO CON ESTILO NAVIDEÑO -->
 <div id="ar-center-btn" slot="ar-button">
   <button class="btn-navidad">🎅 Feliz Navidad para todos 🎄</button>
@@ -110,6 +88,7 @@
   </script>
 </body>
 </html>
+
 
 
 
