@@ -15,6 +15,25 @@
     model-viewer{width:100%;max-width:900px;height:100vh;min-height:600px;background:transparent}
     .hint{position:fixed;left:12px;bottom:12px;color:#fff;font-family:system-ui,Arial;font-size:14px}
   </style>
+  <style>
+  #ar-center-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  #ar-center-btn button {
+    all: unset;
+    background: #0b84ff;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+</style>
 </head>
 <body>
   <div class="wrap">
@@ -33,9 +52,9 @@
       style="background:transparent"
     >
       <!-- Botón personalizado para entrar en AR en navegadores que no lo muestran automáticamente -->
-      <button slot="ar-button" style="all:unset;background:#0b84ff;color:#fff;padding:12px 20px;border-radius:10px;font-weight:600;cursor:pointer;">
-        Ver en AR
-      </button>
+       <div id="ar-center-btn" slot="ar-button">
+    <button>Ver en AR</button>
+  </div>
     </model-viewer>
   </div>
 
@@ -53,4 +72,5 @@
   </script>
 </body>
 </html>
+
 
