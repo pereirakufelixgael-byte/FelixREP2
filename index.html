@@ -16,22 +16,30 @@
     .hint{position:fixed;left:12px;bottom:12px;color:#fff;font-family:system-ui,Arial;font-size:14px}
   </style>
   <style>
-  #ar-center-btn {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
+  .navidad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff1e46, #b30019);
   }
-  #ar-center-btn button {
-    all: unset;
-    background: #0b84ff;
-    color: white;
-    padding: 14px 24px;
-    border-radius: 12px;
-    font-weight: 700;
+
+  .btn-navidad {
+    background: #fff;
+    color: #b30019;
+    border: none;
+    padding: 18px 32px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+  }
+
+  .btn-navidad:hover {
+    transform: scale(1.08);
+    background: #ffefef;
   }
 </style>
 </head>
@@ -52,9 +60,10 @@
       style="background:transparent"
     >
       <!-- Botón personalizado para entrar en AR en navegadores que no lo muestran automáticamente -->
-       <div id="ar-center-btn" slot="ar-button">
-    <button>Ver en AR</button>
-  </div>
+<div class="navidad-container">
+  <button class="btn-navidad">🎅 Feliz Navidad para todos 🎄</button>
+</div>
+
     </model-viewer>
   </div>
 
@@ -72,5 +81,6 @@
   </script>
 </body>
 </html>
+
 
 
